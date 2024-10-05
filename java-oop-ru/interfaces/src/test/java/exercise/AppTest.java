@@ -57,6 +57,42 @@ class AppTest {
     }
 
     // BEGIN
-    
+    @Test
+    void testToString() {
+        CharSequence text = new ReversedSequence("abcdef");
+        assertThat(text.toString()).isEqualTo("fedcba");
+    }
+
+    @Test
+    void testCharAt() {
+        CharSequence text = new ReversedSequence("abcdef");
+        assertThat(text.charAt(1)).isEqualTo('e'); // Проверка второго символа
+    }
+
+    @Test
+    void testLength() {
+        CharSequence text = new ReversedSequence("abcdef");
+        assertThat(text.length()).isEqualTo(6); // Длина строки
+    }
+
+    @Test
+    void testSubSequence() {
+        CharSequence text = new ReversedSequence("abcdef");
+        assertThat(text.subSequence(1, 4).toString()).isEqualTo("edc"); // Проверка подстроки
+    }
+
+    @Test
+    void testEmptyString() {
+        CharSequence text = new ReversedSequence("");
+        assertThat(text.toString()).isEqualTo(""); // Проверка пустой строки
+        assertThat(text.length()).isEqualTo(0); // Длина пустой строки
+    }
+
+    @Test
+    void testSingleCharacter() {
+        CharSequence text = new ReversedSequence("a");
+        assertThat(text.toString()).isEqualTo("a"); // Проверка перевернутой строки из одного символа
+        assertThat(text.charAt(0)).isEqualTo('a'); // Проверка символа
+    }
     // END
 }

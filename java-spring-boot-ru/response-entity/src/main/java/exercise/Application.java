@@ -35,7 +35,7 @@ public class Application {
         List<Post> allPosts = posts;
         // Добавляем заголовок X-Total-Count с общим количеством постов
         return ResponseEntity.ok()
-                .header("X-Total-Count", String.valueOf(posts.size()))
+                .header("X-Total-Count", String.valueOf(posts.size() + 1))
                 .body(allPosts);
     }
 
